@@ -1,18 +1,22 @@
-import './App.css';
-import Todo from './components/Todo.jsx'
-import Title from './components/Title.jsx'
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route,  } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Nav from "./components/Nav.jsx";
+import Users from "./pages/Users.jsx";
+
 
 function App() {
   return (
-    <div>
-      <Title></Title>
-      <div className="todo__wrapper">
-        <Todo></Todo>
-        <Todo/>
-        <Todo/>
-      </div>
-      
-    </div>
+    <Router>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/users/:id" element={<Users/>}></Route>
+      </Routes>
+    </Router>
+  
   );
 }
 
